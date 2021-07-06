@@ -1,19 +1,7 @@
 import {createStore} from 'redux';
-const inc = () => ({type: 'INC'});
-const dec = () => ({type: 'DEC'});
-const rnd = (payload) => ({type: 'RND', payload});
-const reducer = (state = 0, action) =>{
-    switch (action.type){
-        case 'INC':
-            return state + 1;
-        case 'DEC':
-            return state - 1;
-        case 'RND':
-            return state + action.payload;
-        default:
-            return state;
-    }
-}
+import reducer from "./reducer";
+import {inc, dec, rnd} from './actions';
+
 
 const store = createStore(reducer);
 document
