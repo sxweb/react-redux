@@ -25,15 +25,4 @@ const mapStateToProps = (state) => {
         counter: state
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    const {inc, dec, rnd} = bindActionCreators(actions, dispatch);
-    return{
-        inc,
-        dec,
-        rnd: () => {
-            const payload = Math.floor(Math.random() * 10);
-            rnd(payload);
-        }
-    };
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect(mapStateToProps, actions)(Counter);
